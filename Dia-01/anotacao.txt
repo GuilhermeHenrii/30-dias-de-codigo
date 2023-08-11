@@ -1,0 +1,3 @@
+Primeiro parametro do método prompt é a pergunta e o segundo é a resposta
+
+função split recorta a string em partes de acordo com com um caractere delimitador, retornando um array com as partes
