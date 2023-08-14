@@ -1,0 +1,34 @@
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_Operators
+
+operadores aritméticos:
++ adicao
+- subtracao
+/ divisao
+* multiplicacao
+% modulo
+** exponencial
+
+operadores relacionais (sempre retornam true ou false):
+== verifica igualdade
+!= verifica desigualdade
+> verifica maior que
+< verifica menor que
+>= verifica maior igual
+<= verifica menor que
+
+
+10 ** (2 + 5 >= 10);
+retorna 1
+pois primeiro faz a comparação (2 + 5 >= 10) e retorna false
+dps o 10 é elevado a false
+10 ** false (o js converte false para 0)
+10 ** 0 resultado 1 
+esse compartamento é conhecido como COERÇÃO DE TIPOS
+
+https://www.freecodecamp.org/portuguese/news/coercao-de-tipo-em-javascript-explicada/#:~:text=A%20coer%C3%A7%C3%A3o%20de%20tipo%20%C3%A9,sujeito%20a%20coer%C3%A7%C3%A3o%20de%20tipo.
+
+precedencia operadores aritmeticos:
+1 ()
+2 **
+3 / * % 
+4 + -
