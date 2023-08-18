@@ -1,0 +1,1 @@
+declarar o scrip como type module para definir que é do tipo módulo, para usar importações e exportações em jv
