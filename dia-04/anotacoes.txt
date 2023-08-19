@@ -1,1 +1,5 @@
-declarar o scrip como type module para definir que é do tipo módulo, para usar importações e exportações em jv
+declarar o scrip como type module para definir que é do tipo módulo, para usar importações e exportações em js
+
+A tag button e input type button possuem diferenças, uma delas é o fato de que o input type button não dispara o evento de submit e sim o evento de clik, pois seu objetivo é criar um botão clicável que executa ações através do evento click dentro de um formulário. Já a tag button tem o comportamento padrão do evento click e submit, além de ter uma melhor estilização, sendo assim é recomendado a tag button ao invés do input button.
+
+getTimezoneOffset() retorna em horas, a diferença do timezone local e o utc (horário universal coordenado)
