@@ -1,5 +1,5 @@
-export default class ValidateCpf{
-    constructor(){
+// export default class ValidateCpf{
+//     constructor(){
 
-    }
-}
+//     }
+// }

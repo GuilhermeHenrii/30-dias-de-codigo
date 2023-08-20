@@ -1,4 +1,4 @@
-import Cpf from './Cpf.js';
+// import Cpf from './Cpf.js';
 
 class ValidaCandidatoCnh{
     constructor(){
@@ -22,7 +22,7 @@ class ValidaCandidatoCnh{
     validates(el){
         this.validateName(el);
         if(this.valid === true) this.validateCpf(el);
-        if(this.valid === true) this.validateNumber(el);
+        if(this.valid === true) this.validateNumberPhone(el);
         if(this.valid === true) this.validateEmail(el);
         if(this.valid === true) this.validateDate(el);
 
@@ -50,18 +50,24 @@ class ValidaCandidatoCnh{
     }
 
     validateCpf(el){
-
+        
     }
 
-    validateNumber(el){
-        
+    validateNumberPhone(el){
+        console.log(el.tel.value);
+        if(!validator.isMobilePhone(el.tel.value, 'pt-BR')){
+            alert('telefone inválido');
+            return this.valid = false;
+        }
+
+        return this.valid = true;
     }
 
     validateEmail(el){
         const email = el.email.value;
 
-        if(email.length <= 0){
-            alert('email vazio');
+        if(!validator.isEmail(email)){
+            alert('email invalido');
             return this.valid = false;;
         }
 
@@ -78,7 +84,7 @@ class ValidaCandidatoCnh{
 
         let ageMonths = currentDate.getMonth() - date.getMonth();
 
-        let ageDay = currentDate.getMonth() - date.getMonth();
+        let ageDay = currentDate.getDate() - date.getDate();
 
 
         //estudar essa lógica
