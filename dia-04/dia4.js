@@ -1,4 +1,4 @@
-// import Cpf from './Cpf.js';
+import Cpf from './Cpf.js';
 
 class ValidaCandidatoCnh{
     constructor(){
@@ -50,7 +50,15 @@ class ValidaCandidatoCnh{
     }
 
     validateCpf(el){
-        
+        const cpf = el.cpf.value;
+        const validateCpfCheck = new Cpf(cpf);
+
+        if(!validateCpfCheck.validate()) {
+            alert('cpf invalido');
+            return this.valid = false;
+        }
+
+        return this.valid = true;
     }
 
     validateNumberPhone(el){

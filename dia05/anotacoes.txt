@@ -1,0 +1,1 @@
+arrow function não atrela o this ao objeto instanciado na classe e sim ao contexto em que a função foi criado.
