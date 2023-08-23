@@ -1,0 +1,7 @@
+.msg-error{
+    color: red;
+}
+
+.field-error{
+    border-color: red;
+}
