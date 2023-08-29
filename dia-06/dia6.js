@@ -9,9 +9,7 @@ function calculaCargaHoraria(){
     const extraHours = document.querySelector('.extra-hours');
     const hoursValue = document.querySelector('.hours-value');
     const totalHours = Number(extraHours.value + inputWorkedHours.value);
-
-    console.log(weekly, monthly);
-
+    
     
     function generatesFieldError(field, msg){
         const divError = document.createElement('div');
@@ -44,6 +42,8 @@ function calculaCargaHoraria(){
 
 
     function calculateWeekly(){
+        console.log(hoursValue.value);
+
         if(extraHours.value > 12){
             generatesTextError(form, `Máximo permitido por semana são 12 horas extras.`);
             return;
@@ -52,6 +52,11 @@ function calculaCargaHoraria(){
         if(totalHours >= 56){
             console.log(totalHours);
             generatesTextError(form, `Máximo permitido por semana com hora extra são 56 horas trabalhadas.`);
+            return;
+        }
+
+        if(inputWorkedHours.value <= 44 && extraHours.value >= 1){
+            generatesFieldError(extraHours, `Horas extras só são contabilizadas após as 44 horas horas trabalhadas na semana.`);
             return;
         }
 
@@ -65,7 +70,7 @@ function calculaCargaHoraria(){
         }
 
         //function calculateWeeklyOvertime(){
-
+        
         //}
     }
 
@@ -79,6 +84,10 @@ function calculaCargaHoraria(){
         if(totalHours >= 280){
             generatesTextError(form, `Máximo permitido por mês são 280 horas trabalhadas.`);
             return;
+        }
+
+        if(inputWorkedHours.value > 220 && extraHours.value >= 1){
+            generatesFieldError(extraHours, `Horas extras só podem ser contabilizadas após as 220 horas trabalhadas no mês.`)
         }
 
         if(inputWorkedHours.value > 220){
