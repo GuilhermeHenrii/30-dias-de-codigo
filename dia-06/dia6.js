@@ -40,58 +40,75 @@ function calculaCargaHoraria(){
         return div;
     }
 
+    function calculateHoursWorked(){
+        const calculateHours = Number(hoursValue.value * inputWorkedHours.value);
+        const calculateOvertime = Number(hoursValue.value * 1.5) * extraHours.value;
+
+        createDiv(`Você fez R$${calculateHours} e ${calculateOvertime} de horas extras`);
+    }
+
 
     function calculateWeekly(){
-        console.log(hoursValue.value);
+        let valid = true;
 
         if(extraHours.value > 12){
             generatesTextError(form, `Máximo permitido por semana são 12 horas extras.`);
+            valid = false;
             return;
         }
 
         if(totalHours >= 56){
             console.log(totalHours);
             generatesTextError(form, `Máximo permitido por semana com hora extra são 56 horas trabalhadas.`);
+            valid = false;
             return;
         }
 
-        if(inputWorkedHours.value <= 44 && extraHours.value >= 1){
+        if(inputWorkedHours.value < 44 && extraHours.value >= 1){
             generatesFieldError(extraHours, `Horas extras só são contabilizadas após as 44 horas horas trabalhadas na semana.`);
+            valid = false;
             return;
         }
 
         if(inputWorkedHours.value > 44){
             generatesTextError(form, `Máximo permitido por semana sem hora extra são 44 horas trabalhadas.`);
+            valid = false;
             return;
         }
 
         if(inputWorkedHours.value <= 44){
             createDiv(`Voce trabalhou ${inputWorkedHours.value} horas na semana. Você deve ${44 - Number(inputWorkedHours.value)} horas. Horas extras na semana: ${extraHours.value}`);
+            valid = true;
         }
 
-        //function calculateWeeklyOvertime(){
-        
-        //}
+        if(valid === true) calculateHoursWorked();
     }
 
 
     function calculateMonthly(){
+        let valid = true;
+
         if(extraHours.value > 60){
             generatesTextError(form, `Máximo permitido por mês são 60 horas extras.`);
+            let valid = false;
             return;
         }
 
         if(totalHours >= 280){
             generatesTextError(form, `Máximo permitido por mês são 280 horas trabalhadas.`);
+            let valid = false;
             return;
         }
 
         if(inputWorkedHours.value > 220 && extraHours.value >= 1){
-            generatesFieldError(extraHours, `Horas extras só podem ser contabilizadas após as 220 horas trabalhadas no mês.`)
+            generatesFieldError(extraHours, `Horas extras só podem ser contabilizadas após as 220 horas trabalhadas no mês.`);
+            let valid = false;
+            return;
         }
 
         if(inputWorkedHours.value > 220){
             generatesTextError(form, `Máximo permitido por mês sem hora extra são 220 horas trabalhadas.`);
+            let valid = false;
             return;
         }
 
@@ -99,9 +116,7 @@ function calculaCargaHoraria(){
             createDiv(`Você trabalhou ${inputWorkedHours.value} horas no mês. Você deve ${220 - Number(inputWorkedHours.value)} horas.`)
         }
 
-        //function calculateMonthlyOvertime(){
-
-        //}
+        if(valid === true) calculateHoursWorked();
     }
 
 
