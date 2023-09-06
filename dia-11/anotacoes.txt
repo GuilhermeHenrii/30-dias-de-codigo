@@ -1,0 +1,3 @@
+para usar o setInterval devemos chamar a função passando uma arrow function de callback, e dentro dessa função, escrever o codigo que será executado a cada determinado tempo, que é escrito no final da declaração da função.
+
+Não faz sentido usar um while dentro de uma função que seta um intervalo, pois ambas faze praticamente a mesma coisa, salva alguma exceções.
