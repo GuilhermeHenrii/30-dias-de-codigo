@@ -28,14 +28,9 @@ function estock() {
   }
 
   function removeCars() {
-    const car = prompt('Qual carro deseja remover ?');
-
-    carsList.forEach(element => {
-      if(element === car){
-        const valueToDelete = carsList.indexOf(car);
-        carsList.splice(valueToDelete, 1);
-      }
-    });
+    const indexCar = prompt('Digite o índice do carro que deseja remover');
+    const arrayCarsSplice = carsList.splice(Number(indexCar) - 1, 1);
+    console.log(arrayCarsSplice);
 
     showCars();
   }
@@ -43,8 +38,8 @@ function estock() {
   function showCars(){
     divCarsList.innerHTML = '';
 
-    for(let car of carsList){
-      divCarsList.innerHTML += ` ${car}`;
+    for(let car = 0; car <= carsList.length -1; car++){
+      divCarsList.innerHTML += ` ${carsList[car]} ${car + 1}`;
     }
   }
 }
