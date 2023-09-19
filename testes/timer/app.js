@@ -18,7 +18,7 @@ document.addEventListener('click', e => {
     setTimer = setInterval( () => {
       timer.innerHTML = getHoursInSeconds(cont);
       cont++;
-    }, 1);
+    }, 1000);
   }
 
   if(el.classList.contains('stop')){
