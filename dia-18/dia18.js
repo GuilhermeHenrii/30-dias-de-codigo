@@ -1,15 +1,32 @@
 class Animals {
   constructor() {
-    this.arrAnimals = ['cachorro', 'Gato', 'pardal', 'tucano'];
+    this.animalName = document.querySelector('#animal-name');
+    this.sound = document.querySelector('.sound');
+    this.sendBtn = document.querySelector('.send');
+    this.arrAnimals = [{
+      cachorro: 'auau',
+      gato: 'miau',
+      pardal: 'paspspiii',
+      tucano: 'tuc tuc'
+
+    }];
   }
 
   events() {
-    const animal = prompt('Digite um animal (sem acento e minusculo): ');
-    console.log(animal);
+    this.sendBtn.addEventListener('click', e => {
+      if(!this.animalName.value) return alert('Digite um animal válido');
 
-    if(animal === this.arrAnimals[0]){
-      alert('ok');
-    }
+      this.arrAnimals.forEach(element => {
+        console.log(element);
+        if(this.animalName.value == element.cachorro) soundShow();
+      });
+
+      return alert('Animal não encontrado');
+    });
+  }
+
+  soundShow(){
+    alert('cachorro');
   }
 }
 
