@@ -11,10 +11,12 @@ const stop = document.querySelector('.stop');
 const timer = document.querySelector('.timer');
 let cont = 0;
 let setTimer;
+let timerOn = false;
 
 document.addEventListener('click', e => {
   const el = e.target;
-  if(el.classList.contains('start')){
+  if(el.classList.contains('start') && timerOn === false){
+    timerOn = true;
     setTimer = setInterval( () => {
       timer.innerHTML = getHoursInSeconds(cont);
       cont++;
@@ -23,10 +25,12 @@ document.addEventListener('click', e => {
 
   if(el.classList.contains('stop')){
     clearInterval(setTimer);
+    return;
   }
 
   if(el.classList.contains('reset')){
     cont = 0;
     timer.innerHTML = getHoursInSeconds(cont);
+    return;
   }
 })

@@ -1,0 +1,7 @@
+Podemos usar o obj.hasOwnProperty(propiedade) método que vai retornar false ou true, para caso a propriedade que foi passada como parametro exista como sendo uma propriedade do objeto em questão.
+
+podemos usar a notação de colchetes para adicionar valor a um objeto.
+ex.: carros = {carro1: 'ferrari'};
+carro["carro2"] = 'celta';
+
+adicionei a chave carro2 e defini seu valor para 'celta'
