@@ -7,11 +7,11 @@ class Animals {
     this.saved = JSON.parse(localStorage.getItem('saved')) || false;
     this.getSaved;
     this.objAnimals = {
-      cachorro: 'auau',
-      gato: 'miau',
-      pardal: 'paspspiii',
-      tucano: 'tuc tuc',
-      guilherme: 'lindo'
+      cachorro: 'late',
+      gato: 'mia',
+      passaro: 'canta',
+      boi: 'mugi',
+      urso: 'rugi'
     };
   }
 
@@ -34,18 +34,20 @@ class Animals {
           this.sound.style.color = 'red';
           this.sound.innerHTML = 'Animal não encontrado';
         }
+      }
 
-        if (el.classList.contains('register')) {
-          this.animalRegister();
-          this.toggleRegisterMode();
-          console.log(this.getSaved);
-          console.log(this.ObjAnimals);
-        }
+      if (el.classList.contains('register')) {
+        console.log('aqui');
+        this.animalRegister();
+        this.toggleRegisterMode();
+        console.log(this.getSaved);
+        console.log(this.ObjAnimals);
+      }
 
-        if (this.getSaved === 'true' && el.classList.contains('send')) {
-          this.showCreatedSound();
-        }
-      }});
+      if (this.getSaved === 'true' && el.classList.contains('send')) {
+        this.showCreatedSound();
+      }
+    });
   }
 
   showSavedSound() {
@@ -80,8 +82,13 @@ class Animals {
     const animalName = document.querySelector('#animal-name-register');
     const animalSound = document.querySelector('#animal-sound-register');
 
-    this.objAnimals[animalName.value] = animalSound.value;
+    //criar alguma funcionalidade que adicione itens no objeto sem reatribuir todo seu valor
+    // this.objAnimals[animalName.value] = animalSound.value;
+
+    Object.assign(this.objAnimals, {[animalName.value]: animalSound.value})
+
     window.localStorage.setItem('animals', JSON.stringify(this.objAnimals));
+    console.log(this.objAnimals);
   }
 
   toggleRegisterMode() {
