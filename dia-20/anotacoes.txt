@@ -1,0 +1,9 @@
+Nesse pequeno exercicio quero fazer uma aplicação que recebe o nome do aluno a ser cadastrado e seu respectivo curso. Após isso aparecerá uma mensagem dizendo se o usuario foi cadastrado no curso ou não. Esse usuário será incluído ao respectivo documento no banco de dados do mongoose.
+
+Tendo em vista a adição do usuário em uma curso, essa aplicação tbm deverá mlistar os usuários já cadastrados em determinado curso. E a opção de apagar determinado usuário e também editar seu nome e sua disciplina.
+
+Com isso teremos as funcionalidades de criar, editar, remover alunos de seus cursos da faculdade. Sendo assim, teremos uma pequena aplicação de gerenciamento de alunos em relação a seus respectivos cursos.
+
+1. Primeiro temos que ter um index com um formulário para o alunos preencher com suas informações.
+2. A partir disso, botões para cadastrar o usuário com mensagens de confirmação ou negação.
+3. E também botão para listar os usuários de determinado curso, nessa rota deve ter a opção para a edição das informações dos alunos e seu curso.
