@@ -4,6 +4,7 @@ class Animals {
     this.sound = document.querySelector('.sound');
     this.sendBtn = document.querySelector('.send');
     this.registerBtn = document.querySelector('.register');
+    this.statusRegister = document.querySelector('.status-register');
     this.saved = JSON.parse(localStorage.getItem('saved')) || false;
     this.getSaved;
     this.objAnimals = {
@@ -20,7 +21,10 @@ class Animals {
       const el = e.target;
 
       if (el.classList.contains('send')) {
-        if (!this.animalName.value) return alert('Digite um animal válido');
+        if (!this.animalName.value){
+          this.sound.style.color = 'red';
+          this.sound.innerHTML = 'Animal não encontrado events';
+        }
 
         const enteredName = this.animalName.value;
 
@@ -37,11 +41,8 @@ class Animals {
       }
 
       if (el.classList.contains('register')) {
-        console.log('aqui');
         this.animalRegister();
         this.toggleRegisterMode();
-        console.log(this.getSaved);
-        console.log(this.ObjAnimals);
       }
 
       if (this.getSaved === 'true' && el.classList.contains('send')) {
@@ -60,12 +61,8 @@ class Animals {
 
   showCreatedSound() {
     const enteredName = this.animalName.value;
-
     const saveStringAnimals = window.localStorage.getItem('animals');
     const saveObjAnimals = JSON.parse(saveStringAnimals);
-    console.log(saveObjAnimals.cachorro);
-
-    console.log(saveStringAnimals);
 
     if (saveObjAnimals.hasOwnProperty(enteredName)) {
       this.sound.style.color = 'black';
@@ -78,21 +75,25 @@ class Animals {
 
 
   animalRegister() {
-    console.log(this.objAnimals);
     const animalName = document.querySelector('#animal-name-register');
     const animalSound = document.querySelector('#animal-sound-register');
 
-    //criar alguma funcionalidade que adicione itens no objeto sem reatribuir todo seu valor
-    // this.objAnimals[animalName.value] = animalSound.value;
+    if(!animalName.value || !animalSound) {
+      this.statusRegister.innerHTML = 'Registre um animal válido';
+      return this.statusRegister.classList.add('error-on');
+    }
+    let savedAnimals = JSON.parse(localStorage.getItem('animals')) || {};
+    savedAnimals[animalName.value] = animalSound.value;
 
-    Object.assign(this.objAnimals, {[animalName.value]: animalSound.value})
+    window.localStorage.setItem('animals', JSON.stringify(savedAnimals));
 
-    window.localStorage.setItem('animals', JSON.stringify(this.objAnimals));
-    console.log(this.objAnimals);
+    this.statusRegister.classList.remove('error-on');
+    this.statusRegister.innerHTML = 'Animal cadastrado';
+    this.statusRegister.classList.add('success-on');
   }
 
   toggleRegisterMode() {
-    this.saved = !this.saved;
+    this.saved = true;
     localStorage.setItem('saved', JSON.stringify(this.saved));
   }
 }

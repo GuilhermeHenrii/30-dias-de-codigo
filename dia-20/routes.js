@@ -1,18 +1,12 @@
 const express = require('express');
 const route = express.Router();
+const homeController = require('./src/controllers/homeController');
+const alunosController = require('./src/controllers/alunosController');
 
-route.get('/', function(req, res, next){
-  res.render('index');
-})
+route.get('/', homeController.index);
 
-route.post('/' , function(req, res, next) {
-  const listOfStudents = [];
-  const name = req.body.name;
+//route.post('/alunos' , alunosController.index);
 
-  listOfStudents.push(name);
-
-  res.send(listOfStudents);
-
-})
+route.post('/alunos' , alunosController.store);
 
 module.exports = route;

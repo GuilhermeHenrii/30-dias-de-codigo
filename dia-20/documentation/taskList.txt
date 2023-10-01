@@ -1,0 +1,4 @@
+**Aparentemente a modelagem de dados está incorreta.
+
+Criar um tamplate para o idex e para a listagem dos alunos
+tentar usar as flash mensages para retornar sucesso ou erro das requisições com o banco de dados.
