@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const AlunoSchema = new mongoose.Schema({
-  nome: {type: String, require: false, default: ''},
-  curso: {type: String, require: false, default: ''},
+  nome: {type: String, required: true},
+  curso: {type: String, required: false, default: ''},
   criadoEm: {type: Date, default: Date.now},
 });
 
@@ -21,4 +21,6 @@ class Aluno{
   }
 }
 
-module.exports = {AlunosModel, Aluno};
+const model = mongoose.model('Alunos', AlunoSchema);
+
+module.exports = {Aluno, model};
