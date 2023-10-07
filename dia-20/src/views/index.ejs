@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/alunos" method="post">
+  <form action="/alunos" method="post" class="form">
     <h1>Gerenciamento de matrículas</h1>
 
     <label for="name">Digite o nome do aluno:
@@ -29,10 +29,9 @@
     <!-- <button>Adicionar aluno</button> -->
 
     <br><br>
-    <!-- <a href="/alunos"> -->
-    <!-- <input type="submit" value="Listar alunos da turma"></button> -->
-    <!-- </a> -->
+      <input type="submit" formaction="/alunos/list" value="Listar alunos da turma" class="list-aluno"></button>
   </form>
+  <script src="../../frontEnd/index.js"></script>
 </body>
 
 </html>

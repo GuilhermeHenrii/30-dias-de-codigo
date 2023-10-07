@@ -5,8 +5,6 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-const {middlewareGlobal} = require('./src/middlewares/middleware');
-
 mongoose.connect(process.env.connectionstring, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -25,6 +23,8 @@ const flash = require('connect-flash');
 
 const routes = require('./routes');
 const path = require('path');
+
+const {middlewareGlobal} = require('./src/middlewares/middleware');
 
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());

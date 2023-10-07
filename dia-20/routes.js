@@ -5,8 +5,10 @@ const alunosController = require('./src/controllers/alunosController');
 
 route.get('/', homeController.index);
 
-route.get('/alunos/register' , alunosController.index);
-
 route.post('/alunos', alunosController.store);
+route.get('/alunos/register' , alunosController.show);
+route.post('/alunos/list' , alunosController.index);
+
+
 
 module.exports = route;
