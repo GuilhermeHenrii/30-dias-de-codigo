@@ -1,0 +1,1 @@
+Variáveis globais não persistem em memoria após a recarga da página do browser.
